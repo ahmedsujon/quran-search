@@ -22,7 +22,7 @@ class CreateAyatWordsTable extends Migration
             $table->longText('translitaration_word')->nullable();
             $table->longText('english_word_subject_category')->nullable();
             $table->longText('english_word_sub_subject_category')->nullable();
-            $table->longText('inference')->nullable();
+            $table->longText('inference_flag')->nullable();
             $table->longText('hadith_reference')->nullable();
             $table->timestamps();
         });

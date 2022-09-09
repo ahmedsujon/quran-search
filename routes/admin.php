@@ -4,6 +4,7 @@ use App\Http\Controllers\CSVChunkController;
 use App\Http\Controllers\LogoutController;
 use App\Http\Livewire\Admin\Author\AdminComponent as AuthorAdminComponent;
 use App\Http\Livewire\Admin\DashboardComponent;
+use App\Http\Livewire\Admin\Imports\AyatImportComponent;
 use App\Http\Livewire\Admin\Profile\ProfileComponent;
 
 use App\Http\Livewire\Admin\SocialLink\SocialLinkComponent;
@@ -40,7 +41,10 @@ Route::prefix('admin/')->name('admin.')->middleware('auth:admin')->group(functio
     // Social link Routes
     Route::get('social-link', SocialLinkComponent::class)->name('social.link');
     Route::get('list', AuthorAdminComponent::class)->name('adminlist');
-    
+
+    // csv Routes
+    Route::get('ayatimport', AyatImportComponent::class)->name('ayatimport');
+
     // Tools Routes
     Route::get('tools/csv-chunk', CsvChunkComponent::class)->name('chunkCSV');
     Route::post('tools/csv-chunk/chunk', [CSVChunkController::class, 'chunkCSV'])->name('chunkCSVPost');

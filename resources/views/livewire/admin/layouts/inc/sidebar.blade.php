@@ -71,8 +71,8 @@
                                 <div class="col-lg-4">
                                     <ul class="nav nav-sm flex-column">
                                         <li class="nav-item">
-                                            <a href="{{ route('admin.chunkCSV') }}"
-                                                class="nav-link {{ request()->is('admin/tools/csv-chunk') ? 'active':'' }}"
+                                            <a href="{{ route('admin.ayatimport') }}"
+                                                class="nav-link {{ request()->is('admin/ayatimport') ? 'active':'' }}"
                                                 data-key="t-alerts">Ayat Word Export</a>
                                         </li>
                                         <li class="nav-item">
