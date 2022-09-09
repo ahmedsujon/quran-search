@@ -8,4 +8,5 @@ use Illuminate\Database\Eloquent\Model;
 class Hadith extends Model
 {
     use HasFactory;
+    protected $fillable = ['hadith_referance', 'hadith_description'];
 }

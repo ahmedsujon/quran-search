@@ -76,8 +76,8 @@
                                                 data-key="t-alerts">Ayat Word Export</a>
                                         </li>
                                         <li class="nav-item">
-                                            <a href="{{ route('admin.chunkCSV') }}"
-                                                class="nav-link {{ request()->is('admin/tools/csv-chunk') ? 'active':'' }}"
+                                            <a href="{{ route('admin.suraimport') }}"
+                                                class="nav-link {{ request()->is('admin/suraimport') ? 'active':'' }}"
                                                 data-key="t-alerts">Sura Ayat Export</a>
                                         </li>
                                         <li class="nav-item">

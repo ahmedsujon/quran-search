@@ -2,29 +2,30 @@
 
 namespace App\Http\Livewire\Admin\Imports;
 
+use App\Imports\SuraImport;
 use Livewire\Component;
-use App\Imports\HadithImport;
 use Livewire\WithFileUploads;
 use Maatwebsite\Excel\Facades\Excel;
 
-class HadithImportComponent extends Component
+
+class SuraImportComponent extends Component
 {
     public $excel;
     use WithFileUploads;
 
-    public function uploadHadithExcel()
+    public function uploadSuraExcel()
     {
         $this->validate([
             'excel' => 'required',
         ]);
 
-        Excel::import(new HadithImport, $this->excel);
+        Excel::import(new SuraImport, $this->excel);
         $this->excel = '';
         return "Record Uploaded Successfuly!";
     }
 
     public function render()
     {
-        return view('livewire.admin.imports.hadith-import-component')->layout('livewire.admin.layouts.base');
+        return view('livewire.admin.imports.sura-import-component')->layout('livewire.admin.layouts.base');
     }
 }

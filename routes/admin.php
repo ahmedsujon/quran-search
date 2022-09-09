@@ -6,6 +6,7 @@ use App\Http\Livewire\Admin\Author\AdminComponent as AuthorAdminComponent;
 use App\Http\Livewire\Admin\DashboardComponent;
 use App\Http\Livewire\Admin\Imports\AyatImportComponent;
 use App\Http\Livewire\Admin\Imports\HadithImportComponent;
+use App\Http\Livewire\Admin\Imports\SuraImportComponent;
 use App\Http\Livewire\Admin\Profile\ProfileComponent;
 
 use App\Http\Livewire\Admin\SocialLink\SocialLinkComponent;
@@ -46,6 +47,7 @@ Route::prefix('admin/')->name('admin.')->middleware('auth:admin')->group(functio
     // csv Routes
     Route::get('ayatimport', AyatImportComponent::class)->name('ayatimport');
     Route::get('hadithimport', HadithImportComponent::class)->name('hadithimport');
+    Route::get('suraimport', SuraImportComponent::class)->name('suraimport');
 
     // Tools Routes
     Route::get('tools/csv-chunk', CsvChunkComponent::class)->name('chunkCSV');

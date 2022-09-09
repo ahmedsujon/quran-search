@@ -6,9 +6,8 @@ use App\Models\Hadith;
 use Maatwebsite\Excel\Concerns\ToModel;
 use Maatwebsite\Excel\Concerns\WithHeadingRow;
 
-class UsersImport implements ToModel, WithHeadingRow
+class AyatImport implements ToModel, WithHeadingRow
 {
- 
     public function model(array $row)
     {
         $hadithimport = new Hadith();
