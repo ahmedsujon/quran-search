@@ -3,7 +3,6 @@
         <div class="profile-wid-bg profile-setting-img">
             <img src="assets/images/profile-bg.jpg" class="profile-wid-img" alt="">
         </div>
-
         <div class="row">
             <div class="col-xxl-3">
                 <div class="card mt-n5">
