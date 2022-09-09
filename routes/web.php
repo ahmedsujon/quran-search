@@ -4,6 +4,11 @@ use App\Http\Livewire\App\ArabicSearch\DisplayQuraComponent;
 use App\Http\Livewire\App\ArabicSearch\MultipleWordAndSeachComponent;
 use App\Http\Livewire\App\ArabicSearch\MultipleWordOrSeachComponent;
 use App\Http\Livewire\App\ArabicSearch\SinglWordSeachComponent;
+use App\Http\Livewire\App\EnglishSearch\DisplayEnglishSubCategoryComponent;
+use App\Http\Livewire\App\EnglishSearch\DisplayEnglishWordComponent;
+use App\Http\Livewire\App\EnglishSearch\DropdownSearchComponent;
+use App\Http\Livewire\App\EnglishSearch\EnglisWordSearchComponent;
+use App\Http\Livewire\App\EnglishSearch\TransliterationComponent;
 use App\Http\Livewire\App\IndexComponent;
 use App\Http\Livewire\App\SearchListComponent;
 use Illuminate\Support\Facades\Route;
@@ -31,7 +36,12 @@ Route::get('/multiple-word-or-search', MultipleWordOrSeachComponent::class)->nam
 Route::get('/multiple-word-and-search', MultipleWordAndSeachComponent::class)->name('multiple-word-and-search');
 Route::get('/display-quran-arabic', DisplayQuraComponent::class)->name('display-quran-arabic');
 
-
+// English Search Routes
+Route::get('/quran-word-transliteration', TransliterationComponent::class)->name('quran-word-transliteration');
+Route::get('/english-word-search', EnglisWordSearchComponent::class)->name('english-word-search');
+Route::get('/display-subject-category-word', DisplayEnglishWordComponent::class)->name('display-subject-category-word');
+Route::get('/display-subsubject-category-word', DisplayEnglishSubCategoryComponent::class)->name('display-subsubject-category-word');
+Route::get('/dropdown-search', DropdownSearchComponent::class)->name('dropdown-search');
 
 //Call Route Files
 require __DIR__ . '/admin.php';
