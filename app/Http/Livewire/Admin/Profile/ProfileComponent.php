@@ -10,7 +10,7 @@ use Livewire\WithFileUploads;
 
 class ProfileComponent extends Component
 {
-    public $first_name, $last_name, $email, $phone, $new_password, $confirm_password, $avatar, $uploadedAvatar;
+    public $first_name, $last_name, $email, $phone, $password, $new_password, $confirm_password, $avatar, $uploadedAvatar;
 
     use WithFileUploads;
 
