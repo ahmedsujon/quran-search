@@ -85,11 +85,11 @@
                                                 class="nav-link {{ request()->is('admin/tools/csv-chunk') ? 'active':'' }}"
                                                 data-key="t-alerts">Hadith Export</a>
                                         </li>
-                                        {{-- <li class="nav-item">
+                                        <li class="nav-item">
                                             <a href="{{ route('admin.chunkCSV') }}"
                                                 class="nav-link {{ request()->is('admin/tools/csv-chunk') ? 'active':'' }}"
                                                 data-key="t-alerts">Chunk CSV</a>
-                                        </li> --}}
+                                        </li>
                                     </ul>
                                 </div>
                             </div>
