@@ -1,6 +1,8 @@
 <?php
 
+use App\Http\Livewire\App\ArabicSearch\SinglWordSeachComponent;
 use App\Http\Livewire\App\IndexComponent;
+use App\Http\Livewire\App\SearchListComponent;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -18,6 +20,10 @@ use Illuminate\Support\Facades\Route;
 // });
 
 Route::get('/', IndexComponent::class)->name('website');
+Route::get('/search-list', SearchListComponent::class)->name('search-list');
+
+// Arabic Search Routes
+Route::get('/single-word-search', SinglWordSeachComponent::class)->name('single-word-search');
 
 //Call Route Files
 require __DIR__ . '/admin.php';

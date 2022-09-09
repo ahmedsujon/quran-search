@@ -8,6 +8,6 @@ class SearchListComponent extends Component
 {
     public function render()
     {
-        return view('livewire.app.search-list-component');
+        return view('livewire.app.search-list-component')->layout('livewire.layouts.base');
     }
 }

@@ -6,7 +6,7 @@
                 necessitatibus dolores cumque saepe quaerat totam, minus porro velit, beatae modi cum nobis eum. Earum
                 similique dolor veniam.</p>
             <div class="d-grid gap-3 d-sm-flex justify-content-sm-center">
-                <a style="padding: 20px; width: 300px;" href=""
+                <a style="padding: 20px; width: 300px;" href="{{ route('search-list') }}"
                     class="btn btn-primary btn-lg px-4 gap-3">Beginning Search</a>
             </div>
         </div>
