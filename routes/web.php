@@ -1,5 +1,8 @@
 <?php
 
+use App\Http\Livewire\App\ArabicSearch\DisplayQuraComponent;
+use App\Http\Livewire\App\ArabicSearch\MultipleWordAndSeachComponent;
+use App\Http\Livewire\App\ArabicSearch\MultipleWordOrSeachComponent;
 use App\Http\Livewire\App\ArabicSearch\SinglWordSeachComponent;
 use App\Http\Livewire\App\IndexComponent;
 use App\Http\Livewire\App\SearchListComponent;
@@ -24,6 +27,11 @@ Route::get('/search-list', SearchListComponent::class)->name('search-list');
 
 // Arabic Search Routes
 Route::get('/single-word-search', SinglWordSeachComponent::class)->name('single-word-search');
+Route::get('/multiple-word-or-search', MultipleWordOrSeachComponent::class)->name('multiple-word-or-search');
+Route::get('/multiple-word-and-search', MultipleWordAndSeachComponent::class)->name('multiple-word-and-search');
+Route::get('/display-quran-arabic', DisplayQuraComponent::class)->name('display-quran-arabic');
+
+
 
 //Call Route Files
 require __DIR__ . '/admin.php';

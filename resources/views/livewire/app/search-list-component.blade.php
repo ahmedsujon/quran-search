@@ -7,11 +7,11 @@
                     class="btn btn-primary">Quran Single
                     Word
                     Search</a>
-                <a style="padding: 18px; font-size:16px;" href=""
+                <a style="padding: 18px; font-size:16px;" href="{{ route('multiple-word-or-search') }}"
                     class="btn btn-primary btn-lg px-4 gap-3">Quran Multiple
                     Word (Either, OR)
                     Search</a>
-                <a style="padding: 18px; font-size:16px;" href=""
+                <a style="padding: 18px; font-size:16px;" href="{{ route('multiple-word-and-search') }}"
                     class="btn btn-primary btn-lg px-4 gap-3">Quran Multiple
                     word (AND)
                     Search</a>
@@ -19,7 +19,7 @@
         </div>
         <div style="padding-bottom: 40px;" class="col-lg-6 mx-auto">
             <div class="d-grid gap-3 d-sm-flex justify-content-sm-center">
-                <a style="padding: 18px; font-size:16px;" href=""
+                <a style="padding: 18px; font-size:16px;" href="{{ route('display-quran-arabic') }}"
                     class="btn btn-primary btn-lg px-4 gap-3">Display Quran
                     In Arabic</a>
             </div>
