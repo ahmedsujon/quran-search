@@ -41,7 +41,12 @@ Route::get('/quran-word-transliteration', TransliterationComponent::class)->name
 Route::get('/english-word-search', EnglisWordSearchComponent::class)->name('english-word-search');
 Route::get('/display-subject-category-word', DisplayEnglishWordComponent::class)->name('display-subject-category-word');
 Route::get('/display-subsubject-category-word', DisplayEnglishSubCategoryComponent::class)->name('display-subsubject-category-word');
+
+// Dropdown Search Routes
 Route::get('/dropdown-search', DropdownSearchComponent::class)->name('dropdown-search');
+
+
+
 
 //Call Route Files
 require __DIR__ . '/admin.php';

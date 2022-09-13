@@ -85,15 +85,20 @@
                                                 class="nav-link {{ request()->is('admin/hadithimport') ? 'active':'' }}"
                                                 data-key="t-alerts">Hadith Export</a>
                                         </li>
-                                        <li class="nav-item">
+                                        {{-- <li class="nav-item">
                                             <a href="{{ route('admin.chunkCSV') }}"
                                                 class="nav-link {{ request()->is('admin/tools/csv-chunk') ? 'active':'' }}"
                                                 data-key="t-alerts">Chunk CSV</a>
-                                        </li>
+                                        </li> --}}
                                     </ul>
                                 </div>
                             </div>
                         </div>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link menu-link {{ request()->is('admin/dropdown-search') || request()->is('admin/dropdown-search/*') ? 'text-white':'collapsed' }}" href="{{ route('admin.dropdown-search') }}">
+                            <i class="mdi mdi-speedometer"></i> <span data-key="t-dashboards">Dropdown</span>
+                        </a>
                     </li>
 
                     <li class="menu-title"><i class="ri-more-fill"></i> <span data-key="t-components">Basic
