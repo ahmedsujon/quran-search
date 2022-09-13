@@ -104,7 +104,7 @@
                   <td>{{ $ayat_word->arabic_root_word }}</td>
                   <td>{{ $ayat_word->english_word_subject_category }}</td>
                   <td>{{ $ayat_word->inference_flag }}</td>
-                  <td>{{ suraAyatData($ayat_word->surah_number,$ayat_word->ayat_number)->sura_ayat_arabic_description }}</td>
+                  <td dir="rtl">{{ suraAyatData($ayat_word->surah_number,$ayat_word->ayat_number)->sura_ayat_arabic_description }}</td>
                   <td>
                     @if (isset($ayat_word->hadithData->hadith_reference))
                     {{ $ayat_word->hadithData->hadith_reference }}
@@ -139,7 +139,7 @@
                 <tr>
                   <td>{{ $ayat_word->surah_number }}</td>
                   <td>{{ $ayat_word->ayat_number }}</td>
-                  <td>{{ $ayat_word->sura_ayat_arabic_description }}</td>
+                  <td dir="rtl">{{ $ayat_word->sura_ayat_arabic_description }}</td>
                 </tr>
                 @endforeach
                 @else
