@@ -1,20 +1,11 @@
 <div>
     <div class="app-menu navbar-menu">
         <div class="navbar-brand-box">
-            <a href="index.html" class="logo logo-dark">
-                <span class="logo-sm">
-                    <img src="{{ asset('assets/admin/images/logo-sm.png') }}" alt="" height="22">
-                </span>
+
+            <a href="{{ route('admin.dashboard') }}" class="logo logo-light">
+
                 <span class="logo-lg">
-                    <img src="{{ asset('assets/admin/images/logo-dark.png') }}" alt="" height="17">
-                </span>
-            </a>
-            <a href="index.html" class="logo logo-light">
-                <span class="logo-sm">
-                    <img src="{{ asset('assets/admin/images/logo-sm.png') }}" alt="" height="22">
-                </span>
-                <span class="logo-lg">
-                    <img src="{{ asset('assets/admin/images/logo-light.png') }}" alt="" height="17">
+                    <h3 style="color: #fff; padding-top: 20px;">Quran Search</h3>
                 </span>
             </a>
             <button type="button" class="btn btn-sm p-0 fs-20 header-item float-end btn-vertical-sm-hover"
@@ -96,7 +87,8 @@
                         </div>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link menu-link {{ request()->is('admin/dropdown-search') || request()->is('admin/dropdown-search/*') ? 'text-white':'collapsed' }}" href="{{ route('admin.dropdown-search') }}">
+                        <a class="nav-link menu-link {{ request()->is('admin/dropdown-search') || request()->is('admin/dropdown-search/*') ? 'text-white':'collapsed' }}"
+                            href="{{ route('admin.dropdown-search') }}">
                             <i class="mdi mdi-speedometer"></i> <span data-key="t-dashboards">Dropdown</span>
                         </a>
                     </li>

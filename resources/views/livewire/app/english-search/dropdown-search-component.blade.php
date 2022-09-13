@@ -21,10 +21,10 @@
         <div style="text-align: center; padding-bottom: 50px; margin-left: 20%; margin-right: 20%;" class="dropdown">
           <select wire:model="dropdownsearch" class="form-select" aria-label="Default select example">
             <option value="">Open this select topics</option>
-            <option value="Mankind Creation">Mankind Creation</option>
-            <option value="Discrimination In Islam">Discrimination In Islam</option>
-            <option value="One Ness of Allah">One Ness of Allah</option>
-            <option value="Allah's Permission">Allah's Permission</option>
+            @foreach ($dropdown_values as $item)
+                <option value="{{ $item->id }}">{{ $item->name }}</option>
+            @endforeach
+            
           </select>
         </div>
         
