@@ -67,9 +67,9 @@
                                         <td>{{ $admin->email }}</td>
                                         <td>{{ $admin->phone }}</td>
                                         <td class="text-center">
-                                            <a href="#" class="btn btn-icon btn-sm p-2 btn-outline-primary btn-rounded"><i class="mdi mdi-eye fs-15"></i></a>
 
-                                            <a href="#" class="btn btn-icon btn-sm p-2 btn-outline-info btn-rounded"><i class="mdi mdi-square-edit-outline fs-15"></i></a>
+                                            {{-- <a href="#" class="btn btn-icon btn-sm p-2 btn-outline-primary btn-rounded"><i class="mdi mdi-eye fs-15"></i></a>
+                                            <a href="#" class="btn btn-icon btn-sm p-2 btn-outline-info btn-rounded"><i class="mdi mdi-square-edit-outline fs-15"></i></a> --}}
 
                                             <a href="#" wire:click.prevent='deleteConfirmation({{ $admin->id }})' class="btn btn-icon btn-sm p-2 btn-outline-danger btn-rounded"><i class="mdi mdi-delete-forever fs-15"></i></a>
                                         </td>
@@ -91,7 +91,7 @@
     {{-- Add Data --}}
     <div id="myModal" wire:ignore.self class="modal zoomIn" tabindex="-1" aria-labelledby="myModalLabel"
         aria-hidden="true" style="display: none;">
-        <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-dialog modal-lg modal-dialog-centered">
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title" id="myModalLabel">Send Email</h5>

@@ -5,7 +5,7 @@
                 <div class="d-flex">
                     <!-- LOGO -->
                     <div class="navbar-brand-box horizontal-logo">
-                        <a href="index.html" class="logo logo-dark">
+                        <a href="{{ route('admin.dashboard') }}" class="logo logo-dark">
                             <span class="logo-sm">
                                 <img src="{{ asset('assets/admin/images/logo-sm.png') }}" alt="" height="22">
                             </span>
@@ -13,8 +13,7 @@
                                 <img src="{{ asset('assets/admin/images/logo-dark.png') }}" alt="" height="17">
                             </span>
                         </a>
-
-                        <a href="index.html" class="logo logo-light">
+                        <a href="{{ route('admin.dashboard') }}" class="logo logo-light">
                             <span class="logo-sm">
                                 <img src="{{ asset('assets/admin/images/logo-sm.png') }}" alt="" height="22">
                             </span>
@@ -181,9 +180,16 @@
                         <button type="button" class="btn shadow-none" id="page-header-user-dropdown"
                             data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             <span class="d-flex align-items-center">
+                                @if (Auth::guard('admin')->user()->avatar)
                                 <img class="rounded-circle header-profile-user"
+                                    src="{{ asset('uploads/profile') }}/{{ Auth::guard('admin')->user()->avatar }}" alt="Header Avatar">
+                                <span class="text-start ms-xl-2">
+                                    @else
+                                    <img class="rounded-circle header-profile-user"
                                     src="{{ asset('assets/admin/images/users/avatar-1.jpg') }}" alt="Header Avatar">
                                 <span class="text-start ms-xl-2">
+                                    @endif
+
                                     <span class="d-none d-xl-inline-block ms-1 fw-medium user-name-text">{{ Auth::guard('admin')->user()->first_name }} {{ Auth::guard('admin')->user()->last_name }}</span>
                                     <span
                                         class="d-none d-xl-block ms-1 fs-12 text-muted user-name-sub-text">Founder</span>
