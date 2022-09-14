@@ -54,7 +54,7 @@
                             href="#sidebarTools" data-bs-toggle="collapse"
                             aria-expanded="{{ request()->is('admin/tools') || request()->is('admin/tools/*') ? 'true':'false' }}"
                             role="button" aria-controls="sidebarTools">
-                            <i class="ri-settings-3-line"></i> <span data-key="t-base-ui">Export Data</span>
+                            <i class="ri-settings-3-line"></i> <span data-key="t-base-ui">Import Data</span>
                         </a>
                         <div class="menu-dropdown mega-dropdown-menu collapse {{ request()->is('admin/tools') || request()->is('admin/tools/*') ? 'show':'' }}"
                             id="sidebarTools">
@@ -62,19 +62,19 @@
                                 <div class="col-lg-4">
                                     <ul class="nav nav-sm flex-column">
                                         <li class="nav-item">
-                                            <a href="{{ route('admin.ayatimport') }}"
-                                                class="nav-link {{ request()->is('admin/ayatimport') ? 'active':'' }}"
-                                                data-key="t-alerts">Ayat Word Export</a>
-                                        </li>
-                                        <li class="nav-item">
                                             <a href="{{ route('admin.suraimport') }}"
                                                 class="nav-link {{ request()->is('admin/suraimport') ? 'active':'' }}"
-                                                data-key="t-alerts">Sura Ayat Export</a>
+                                                data-key="t-alerts">Sura Ayat Import</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a href="{{ route('admin.ayatimport') }}"
+                                                class="nav-link {{ request()->is('admin/ayatimport') ? 'active':'' }}"
+                                                data-key="t-alerts">Ayat Word Import</a>
                                         </li>
                                         <li class="nav-item">
                                             <a href="{{ route('admin.hadithimport') }}"
                                                 class="nav-link {{ request()->is('admin/hadithimport') ? 'active':'' }}"
-                                                data-key="t-alerts">Hadith Export</a>
+                                                data-key="t-alerts">Hadith Import</a>
                                         </li>
                                         {{-- <li class="nav-item">
                                             <a href="{{ route('admin.chunkCSV') }}"

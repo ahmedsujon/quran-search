@@ -3,6 +3,7 @@
 namespace App\Imports;
 
 use App\Models\AyatWord;
+use App\Models\SuraAyat;
 use Maatwebsite\Excel\Concerns\ToModel;
 use Maatwebsite\Excel\Concerns\WithHeadingRow;
 
@@ -23,5 +24,22 @@ class AyatImport implements ToModel, WithHeadingRow
         $ayatimport->inference_flag                     = $row['inference_flag'];
         $ayatimport->hadith_reference                   = $row['hadith_reference'];
         $ayatimport->save();
+
+        $sura = SuraAyat::where('surah_number', $row['surah_number'])->where('ayat_number', $row['ayat_number'])->first();
+        if($sura->arabic_root_word == null){
+            $sura->arabic_root_word = $row['arabic_root_word'];
+            $sura->normalized_arabic_word = $row['normalized_arabic_word'];
+            $sura->translitaration_word = $row['translitaration_word'];
+            $sura->english_word_subject_subject_category = $row['english_word_subject_category'];
+            $sura->english_word_sub_subject_sub_subject_category = $row['english_word_sub_subject_category'];
+        }
+        else{
+            $sura->arabic_root_word = $sura->arabic_root_word.','.$row['arabic_root_word'];
+            $sura->normalized_arabic_word = $sura->normalized_arabic_word.','.$row['normalized_arabic_word'];
+            $sura->translitaration_word = $sura->translitaration_word.','.$row['translitaration_word'];
+            $sura->english_word_subject_subject_category = $sura->english_word_subject_subject_category.','.$row['english_word_subject_category'];
+            $sura->english_word_sub_subject_sub_subject_category = $sura->english_word_sub_subject_sub_subject_category.','.$row['english_word_sub_subject_category'];
+        }
+        $sura->save();
     }
 }

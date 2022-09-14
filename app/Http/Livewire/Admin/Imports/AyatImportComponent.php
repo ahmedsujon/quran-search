@@ -20,7 +20,7 @@ class AyatImportComponent extends Component
         
         Excel::import(new AyatImport, $this->excel);
         $this->excel = '';
-        $this->dispatchBrowserEvent('success', ['message' => 'Record added successfully']);
+        $this->dispatchBrowserEvent('success',['message'=>'Record Uploaded Successfuly!']);
     }
 
     public function render()
