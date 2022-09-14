@@ -16,7 +16,7 @@ class HadithReference implements ToModel,WithHeadingRow
     public function model(array $row)
     {
         $hadithimport = new Hadith();
-        $hadithimport->hadith_reference   = $row['hadith_referance'];
+        $hadithimport->hadith_reference   = $row['hadith_reference'];
         $hadithimport->hadith_description = $row['hadith_description'];
         $hadithimport->save();
     }
