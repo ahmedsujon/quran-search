@@ -24,7 +24,7 @@
               <th>English-Word-Subsubject-Subcategory</th>
               <th>English-Word-Subject-Category</th>
               <th>Sura Ayat English Description</th>
-              <th>Hadith Description</th>
+              <th>Hadith Reference</th>
             </tr>
             @php
                 $sl = ($display_complete_quran_category->perPage() * $display_complete_quran_category->currentPage())-($display_complete_quran_category->perPage() - 1)

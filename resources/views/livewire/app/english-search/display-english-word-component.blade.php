@@ -25,7 +25,7 @@
               <th>English-Word-Subject-Category,</th>
               <th>English-Word-Subsubject-Subcategory</th>
               <th>Sura Ayat English Description</th>
-              <th>Hadith Description</th>
+              <th>Hadith Reference</th>
             </tr>
             @if ($display_complete_quran_word->count() > 0)
             @foreach ($display_complete_quran_word as $ayat_word)

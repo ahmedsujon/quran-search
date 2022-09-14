@@ -6,7 +6,7 @@
       <a href="{{ route('website') }}" type="button" class="btn btn-primary">
         Home
       </a>
-      <a href="{{ route('database.search') }}" type="button" class="btn btn-primary">
+      <a href="{{ route('search-list') }}" type="button" class="btn btn-primary">
         Search List
       </a>
     </div>
@@ -56,11 +56,11 @@
                   </tr>
                   @foreach ($multiple_words_search as $multipleword)
                   <tr>
-                    <td>{{ $multipleword->surah_no }}:{{ $multipleword->ayat_no }}</td>
+                    <td>{{ $multipleword->surah_number }}:{{ $multipleword->ayat_number}}</td>
                     <td>{{ $multipleword->arabic_root_word }}</td>
-                    <td>{{ $multipleword->normalize_word }}</td>
+                    <td>{{ $multipleword->normalized_arabic_word }}</td>
                     <td>{{ $multipleword->inference_flag }}</td>
-                    <td>{{ suraAyatData($multipleword->surah_no, $multipleword->ayat_no)->ayat_arabic_description }}
+                    <td>{{ suraAyatData($multipleword->surah_number, $multipleword->ayat_number)->sura_ayat_arabic_description }}
                     </td>
                     <td>
                       @if (isset($multipleword->hadithData->hadith_description))
@@ -102,11 +102,11 @@
                   @if ($multiple_words_search_tab_two->count() > 0)
                   @foreach ($multiple_words_search_tab_two as $ayat_word)
                   <tr>
-                    <td>{{ $ayat_word->surah_no }}:{{ $ayat_word->ayat_no }}</td>
-                    <td>{{ $ayat_word->normalize_word }}</td>
+                    <td>{{ $ayat_word->surah_number }}:{{ $ayat_word->ayat_number }}</td>
+                    <td>{{ $ayat_word->normalized_arabic_word }}</td>
                     <td>{{ $ayat_word->arabic_root_word }}</td>
                     <td>{{ $ayat_word->inference_flag }}</td>
-                    <td>{{ suraAyatData($ayat_word->surah_no, $ayat_word->ayat_no)->ayat_arabic_description }}</td>
+                    <td>{{ suraAyatData($ayat_word->surah_number, $ayat_word->ayat_number)->sura_ayat_arabic_description }}</td>
                     <td>
                       @if (isset($ayat_word->hadithData->hadith_description))
                       {{ $ayat_word->hadithData->hadith_description }}
@@ -146,7 +146,7 @@
                   <tr>
                     <td>{{ $ayat_word->surah_number }}</td>
                     <td>{{ $ayat_word->ayat_number }}</td>
-                    <td>{{ $ayat_word->ayat_arabic_description }}</td>
+                    <td>{{ $ayat_word->sura_ayat_arabic_description }}</td>
                   </tr>
                   @endforeach
                   @else

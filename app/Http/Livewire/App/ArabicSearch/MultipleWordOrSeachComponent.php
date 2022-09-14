@@ -114,6 +114,6 @@ class MultipleWordOrSeachComponent extends Component
         return view('livewire.app.arabic-search.multiple-word-or-seach-component',[
             'multiple_words_search' => $multiple_words_search, 
             'multiple_words_search_tab_two'=>$multiple_words_search_tab_two,
-            'multiple_words_search_tab_three'=>$multiple_words_search_tab_three]);
+            'multiple_words_search_tab_three'=>$multiple_words_search_tab_three])->layout('livewire.layouts.base');
     }
 }

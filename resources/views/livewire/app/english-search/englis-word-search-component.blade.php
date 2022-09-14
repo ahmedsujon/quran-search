@@ -53,10 +53,10 @@
                 @if ($search_using_english_word->count() > 0)
                 @foreach ($search_using_english_word as $ayat_word)
                 <tr>
-                  <td>{{ $ayat_word->surah_no }}:{{ $ayat_word->ayat_no }}</td>
-                  <td>{{ $ayat_word->english_word }}</td>
+                  <td>{{ $ayat_word->surah_number }}:{{ $ayat_word->ayat_number }}</td>
+                  <td>{{ $ayat_word->english_word_subject_category }}</td>
                   <td>{{ $ayat_word->inference_flag }}</td>
-                  <td>{{ suraAyatData($ayat_word->surah_no,$ayat_word->ayat_no)->ayat_english_description }}</td>
+                  <td>{{ suraAyatData($ayat_word->surah_number,$ayat_word->ayat_number)->sura_ayat_english_description }}</td>
                   <td>
                     @if (isset($ayat_word->hadithData->hadith_description))
                     {{ $ayat_word->hadithData->hadith_description }}
@@ -99,10 +99,10 @@
                 @if ($search_using_english_word_tab_two->count() > 0)
                 @foreach ($search_using_english_word_tab_two as $ayat_word)
                 <tr>
-                  <td>{{ $ayat_word->surah_no }}:{{ $ayat_word->ayat_no }}</td>
-                  <td>{{ $ayat_word->english_word }}</td>
+                  <td>{{ $ayat_word->surah_number }}:{{ $ayat_word->ayat_number }}</td>
+                  <td>{{ $ayat_word->english_word_subject_category }}</td>
                   <td>{{ $ayat_word->inference_flag }}</td>
-                  <td>{{ suraAyatData($ayat_word->surah_no,$ayat_word->ayat_no)->ayat_english_description }}</td>
+                  <td>{{ suraAyatData($ayat_word->surah_number,$ayat_word->ayat_number)->sura_ayat_english_description }}</td>
                   <td>
                     @if (isset($ayat_word->hadithData->hadith_description))
                     {{ $ayat_word->hadithData->hadith_description }}
@@ -140,9 +140,9 @@
                 @if ($search_using_english_word_tab_three->count() > 0)
                 @foreach ($search_using_english_word_tab_three as $ayat_word)
                 <tr>
-                  <td>{{ $ayat_word->surah_no }}</td>
-                  <td>{{ $ayat_word->ayat_no }}</td>
-                  <td>{{ suraAyatData($ayat_word->surah_no,$ayat_word->ayat_no)->ayat_english_description }}</td>
+                  <td>{{ $ayat_word->surah_number }}</td>
+                  <td>{{ $ayat_word->ayat_number }}</td>
+                  <td>{{ suraAyatData($ayat_word->surah_number,$ayat_word->ayat_number)->sura_ayat_english_description }}</td>
                 </tr>
                 @endforeach
                 @else
