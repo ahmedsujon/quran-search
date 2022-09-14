@@ -21,7 +21,7 @@ class SuraImportComponent extends Component
 
         Excel::import(new SuraImport, $this->excel);
         $this->excel = '';
-        return "Record Uploaded Successfuly!";
+        $this->dispatchBrowserEvent('success', ['message' => 'Record added successfully']);
     }
 
     public function render()

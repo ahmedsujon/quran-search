@@ -20,7 +20,7 @@ class HadithImportComponent extends Component
 
         Excel::import(new HadithReference, $this->excel);
         $this->excel = '';
-        return "Record Uploaded Successfuly!";
+        $this->dispatchBrowserEvent('success', ['message' => 'Record added successfully']);
     }
 
     public function render()
