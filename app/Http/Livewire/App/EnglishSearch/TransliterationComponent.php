@@ -3,6 +3,7 @@
 namespace App\Http\Livewire\App\EnglishSearch;
 
 use App\Models\AyatWord;
+use App\Models\SuraAyat;
 use Livewire\Component;
 use Livewire\WithPagination;
 
@@ -57,7 +58,7 @@ class TransliterationComponent extends Component
         $search_using_transliteration_two = $allDataTwo->sortBy('surah_number')->paginate($this->sortingValue);
 
         // tab three
-        $search_using_transliteration_three = AyatWord::where('translitaration_word', 'like', '%' . $this->searchUsingTransliterationTabThreeOne . '%')->where('translitaration_word', 'like', '%' . $this->searchUsingTransliterationTabThreeTwo . '%')->where('translitaration_word', 'like', '%' . $this->searchUsingTransliterationTabThreeThree . '%')->orderBy('surah_number', 'ASC')->paginate($this->sortingValue);
+        $search_using_transliteration_three = SuraAyat::where('sura_ayat_english_description', 'like', '%' . $this->searchUsingTransliterationTabThreeOne . '%')->where('sura_ayat_english_description', 'like', '%' . $this->searchUsingTransliterationTabThreeTwo . '%')->where('sura_ayat_english_description', 'like', '%' . $this->searchUsingTransliterationTabThreeThree . '%')->orderBy('surah_number', 'ASC')->paginate($this->sortingValue);
         
         return view('livewire.app.english-search.transliteration-component',[
             'search_using_translitaration' => $search_using_translitaration,
