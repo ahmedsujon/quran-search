@@ -60,7 +60,7 @@ class EnglisWordSearchComponent extends Component
                 $allDataTwo->push($resultall);
             }
         }
-        $search_using_english_word_tab_two = $allDataTwo->sortBy('surah_no')->paginate($this->sortingValue);
+        $search_using_english_word_tab_two = $allDataTwo->sortBy('surah_number')->paginate($this->sortingValue);
         $search_using_english_word_tab_three = AyatWord::where('english_word_subject_category', 'like', '%' . $this->searchUsingEnglishWordTabThreeOne . '%')->where('english_word_subject_category', 'like', '%' . $this->searchUsingEnglishWordTabThreeTwo . '%')->where('english_word_subject_category', 'like', '%' . $this->searchUsingEnglishWordTabThreeThree . '%')->orderBy('surah_number', 'ASC')->paginate($this->sortingValue);
 
         return view('livewire.app.english-search.englis-word-search-component', [
