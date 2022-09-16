@@ -64,8 +64,8 @@
                   <td>{{ $ayat_word->inference_flag }}</td>
                   <td>{{ suraAyatData($ayat_word->surah_number,$ayat_word->ayat_number)->sura_ayat_arabic_description }}</td>
                   <td>
-                    @if (isset($ayat_word->hadithData->hadith_reference))
-                    {{ $ayat_word->hadithData->hadith_reference }}
+                    @if (isset($ayat_word->hadithData->hadith_description))
+                    {{ $ayat_word->hadithData->hadith_description }}
                     @endif
                   </td>
                 </tr>
@@ -106,8 +106,8 @@
                   <td>{{ $ayat_word->inference_flag }}</td>
                   <td dir="rtl">{{ suraAyatData($ayat_word->surah_number,$ayat_word->ayat_number)->sura_ayat_arabic_description }}</td>
                   <td>
-                    @if (isset($ayat_word->hadithData->hadith_reference))
-                    {{ $ayat_word->hadithData->hadith_reference }}
+                    @if (isset($ayat_word->hadithData->hadith_description))
+                    {{ $ayat_word->hadithData->hadith_description }}
                     @endif
                   </td>
                 </tr>
