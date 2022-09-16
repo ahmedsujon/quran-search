@@ -25,7 +25,7 @@
               <th>English-Word-Subject-Category,</th>
               <th>English-Word-Subsubject-Subcategory</th>
               <th>Sura Ayat English Description</th>
-              <th>Hadith Reference</th>
+              <th>Hadith Description</th>
             </tr>
             @if ($display_complete_quran_word->count() > 0)
             @foreach ($display_complete_quran_word as $ayat_word)
@@ -35,8 +35,8 @@
               <td>{{ $ayat_word->english_word_sub_subject_category }}</td>
               <td>{{ suraAyatData($ayat_word->surah_number,$ayat_word->ayat_number)->sura_ayat_english_description }}</td>
               <td>
-                @if (isset($ayat_word->hadithData->hadith_reference))
-                {{ $ayat_word->hadithData->hadith_reference }}
+                @if (isset($ayat_word->hadithData->hadith_description))
+                {{ $ayat_word->hadithData->hadith_description }}
                 @endif
               </td>
             </tr>

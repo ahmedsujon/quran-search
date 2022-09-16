@@ -24,7 +24,7 @@
               <th>English-Word-Subsubject-Subcategory</th>
               <th>English-Word-Subject-Category</th>
               <th>Sura Ayat English Description</th>
-              <th>Hadith Reference</th>
+              <th>Hadith Description</th>
             </tr>
             @php
                 $sl = ($display_complete_quran_category->perPage() * $display_complete_quran_category->currentPage())-($display_complete_quran_category->perPage() - 1)
@@ -37,8 +37,8 @@
               <td>{{ $ayat_word->english_word_subject_category }}</td>
               <td>{{ suraAyatData($ayat_word->surah_number,$ayat_word->ayat_number)->sura_ayat_english_description }}</td>
               <td>
-                @if (isset($ayat_word->hadithData->hadith_reference))
-                {{ $ayat_word->hadithData->hadith_reference }}
+                @if (isset($ayat_word->hadithData->hadith_description))
+                {{ $ayat_word->hadithData->hadith_description }}
                 @endif
               </td>
             </tr>
