@@ -15,7 +15,7 @@ class DropdownSearchComponent extends Component
 
     public function render()
     {
-        $search_dropdowns = AyatWord::where('english_word_subject_category', 'like', '%' . $this->dropdownsearch . '%')->paginate($this->sortingValue);
+        $search_dropdowns = AyatWord::where('english_word_sub_subject_category', 'like', '%' . $this->dropdownsearch . '%')->paginate($this->sortingValue);
         
         $dropdown_values = Dropdown::get();
 

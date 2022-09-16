@@ -80,14 +80,14 @@
         <div class="modal-dialog modal-lg modal-dialog-centered">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="myModalLabel">Send Email</h5>
+                    <h5 class="modal-title" id="myModalLabel">ADD DROPDOWN SEARCHES</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"> </button>
                 </div>
                 <form wire:submit.prevent="storeData">
                     <div class="modal-body">
                         <div class="row">
                             <div class="col-md-6">
-                                <label for="iconrightInput" class="form-label">First Name</label>
+                                <label for="iconrightInput" class="form-label">Name</label>
                                 <input type="text" wire:model="name" class="form-control form-control-icon" wire:keyup="generateslug">
                                 @error('name')
                                     <span class="text-danger" style="font-size: 12.5px;">{{ $message }}</span>

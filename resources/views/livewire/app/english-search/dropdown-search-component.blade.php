@@ -22,9 +22,8 @@
           <select wire:model="dropdownsearch" class="form-select" aria-label="Default select example">
             <option value="">Open this select topics</option>
             @foreach ($dropdown_values as $item)
-                <option value="{{ $item->id }}">{{ $item->name }}</option>
+                <option value="{{ $item->name }}">{{ $item->name }}</option>
             @endforeach
-            
           </select>
         </div>
         

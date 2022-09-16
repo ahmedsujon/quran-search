@@ -1,3 +1,0 @@
-hadith_reference,hadith_description
-1,Action shall be judged by intention
-2,Waiting for Hadith
