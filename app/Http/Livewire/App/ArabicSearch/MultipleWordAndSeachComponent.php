@@ -2,10 +2,11 @@
 
 namespace App\Http\Livewire\App\ArabicSearch;
 
+use Livewire\Component;
 use App\Models\AyatWord;
 use App\Models\SuraAyat;
-use Livewire\Component;
 use Livewire\WithPagination;
+use Illuminate\Support\Facades\DB;
 
 class MultipleWordAndSeachComponent extends Component
 {
@@ -24,11 +25,93 @@ class MultipleWordAndSeachComponent extends Component
 
     public function render()
     {
+        DB::statement("SET sql_mode = '' ");
 
-        $multiple_or_words_search = SuraAyat::where('sura_ayat_arabic_description', 'like', '%' . $this->multipleOrWordSearchOne . '%')->where('sura_ayat_arabic_description', 'like', '%' . $this->multipleOrWordSearchtwo . '%')->where('sura_ayat_arabic_description', 'like', '%' . $this->multipleOrWordSearchthree . '%')->orderBy('surah_number', 'ASC')->paginate($this->sortingValue);
+        $multiple_or_words_search = collect([]);
+
+        if ($this->multipleOrWordSearchOne != null || $this->multipleOrWordSearchtwo != null || $this->multipleOrWordSearchthree != null) {
+
+            $collectionA = collect([]);
+            if($this->multipleOrWordSearchOne != null){
+                $dataSets1 = AyatWord::where('arabic_root_word_harkat', pregReplace($this->multipleOrWordSearchOne))->groupBy('surah_number')->groupBy('ayat_number')->get();
+                
+                foreach ($dataSets1 as $d1) {
+                    if($this->multipleOrWordSearchtwo != null){
+                        $dataSets2 = AyatWord::where('surah_number', $d1->surah_number)->where('ayat_number', $d1->ayat_number)->where('arabic_root_word_harkat', pregReplace($this->multipleOrWordSearchtwo))->get();
+
+                        // dd($dataSets2);
+                        foreach ($dataSets2 as $d2) {
+                            if($this->multipleOrWordSearchthree != null){
+                                $dataSets3 = AyatWord::where('surah_number', $d2->surah_number)->where('ayat_number', $d2->ayat_number)->where('arabic_root_word_harkat', pregReplace($this->multipleOrWordSearchthree))->get();
+                                
+                                foreach ($dataSets3 as $d3) {
+                                    $getD3 = AyatWord::where('surah_number', $d3->surah_number)->where('ayat_number', $d3->ayat_number)->get();
+                                    foreach($getD3 as $gd3){
+                                        if (!$collectionA->contains($gd3)) {
+                                            $collectionA->push($gd3);
+                                        }
+                                    }
+                                }
+                            }
+                            else{
+                                $getD2 = AyatWord::where('surah_number', $d2->surah_number)->where('ayat_number', $d2->ayat_number)->get();
+                                foreach($getD2 as $gd2){
+                                    if (!$collectionA->contains($gd2)) {
+                                        $collectionA->push($gd2);
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    else{
+                        $getD1 = AyatWord::where('surah_number', $d1->surah_number)->where('ayat_number', $d1->ayat_number)->get();
+                        foreach($getD1 as $gd1){
+                            if (!$collectionA->contains($gd1)) {
+                                $collectionA->push($gd1);
+                            }
+                        }
+                    }
+                    
+                }
+            }
+
+            $surahNumberCollection = collect([]);
+            foreach ($collectionA as $colA) {
+                if (!$surahNumberCollection->contains(['surah'=>$colA->surah_number, 'ayat'=>$colA->ayat_number])) {
+                    $surahNumberCollection->push(['surah'=>$colA->surah_number, 'ayat'=>$colA->ayat_number]);
+                }
+            }
+
+            foreach($surahNumberCollection as $actVal){
+                $getData = SuraAyat::where('surah_number', $actVal['surah'])->where('ayat_number', $actVal['ayat'])->first();
+                if (!$multiple_or_words_search->contains($getData)) {
+                    $multiple_or_words_search->push($getData);
+                }
+            }
+        } else {
+            $multiple_or_words_searchAll = SuraAyat::all();
+            foreach ($multiple_or_words_searchAll as $resultall) {
+                $multiple_or_words_search->push($resultall);
+            }
+        }
+        $multiple_or_words_search = $multiple_or_words_search->paginate($this->sortingValue);
 
 
-        $multiple_or_words_search_tab_two = SuraAyat::where('sura_ayat_arabic_description', 'like', '%' . $this->multipleOrWordSearchTabTwoOne . '%')->where('sura_ayat_arabic_description', 'like', '%' . $this->multipleOrWordSearchTabTwoTwo . '%')->where('sura_ayat_arabic_description', 'like', '%' . $this->multipleOrWordSearchTabTwoThree . '%')->orderBy('surah_number', 'ASC')->paginate($this->sortingValue);
+
+
+
+
+        
+        $multiple_or_words_search_tab_two = collect([]);
+        $dataSets2 = AyatWord::where('normalized_arabic_word_harkat', pregReplace($this->multipleOrWordSearchTabTwoOne))->orWhere('normalized_arabic_word_harkat', pregReplace($this->multipleOrWordSearchTabTwoTwo))->orWhere('normalized_arabic_word_harkat', pregReplace($this->multipleOrWordSearchTabTwoThree))->groupBy('surah_number')->groupBy('ayat_number')->get();
+        foreach ($dataSets2 as $d2) {
+            $getData = SuraAyat::where('surah_number', $d2->surah_number)->where('ayat_number', $d2->ayat_number)->first();
+            if (!$multiple_or_words_search_tab_two->contains($getData)) {
+                $multiple_or_words_search_tab_two->push($getData);
+            }
+        }
+        $multiple_or_words_search_tab_two = $multiple_or_words_search_tab_two->paginate($this->sortingValue);
+
 
         $multiple_or_words_search_tab_three = SuraAyat::where('sura_ayat_arabic_description', 'like', '%' . $this->multipleOrWordSearchTabThreeOne . '%')->where('sura_ayat_arabic_description', 'like', '%' . $this->multipleOrWordSearchTabThreeTwo . '%')->where('sura_ayat_arabic_description', 'like', '%' . $this->multipleOrWordSearchTabThreeThree . '%')->orderBy('surah_number', 'ASC')->paginate($this->sortingValue);
 

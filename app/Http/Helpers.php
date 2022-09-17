@@ -37,3 +37,7 @@ function ayatwordData($surah_number, $ayat_number){
     $data = AyatWord::where('surah_number', $surah_number)->where('ayat_number', $ayat_number)->first();
     return $data;
 }
+
+function pregReplace($value){
+    return preg_replace("~[\x{064B}-\x{065B}]~u", "", $value);
+}

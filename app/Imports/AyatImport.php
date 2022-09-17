@@ -16,7 +16,9 @@ class AyatImport implements ToModel, WithHeadingRow
         $ayatimport->surah_number                       = $row['surah_number'];
         $ayatimport->ayat_number                        = $row['ayat_number'];
         $ayatimport->arabic_root_word                   = $row['arabic_root_word'];
+        $ayatimport->arabic_root_word_harkat            = preg_replace("~[\x{064B}-\x{065B}]~u", "", $row['arabic_root_word']);
         $ayatimport->normalized_arabic_word             = $row['normalized_arabic_word'];
+        $ayatimport->normalized_arabic_word_harkat      = preg_replace("~[\x{064B}-\x{065B}]~u", "", $row['normalized_arabic_word']);
         $ayatimport->translitaration_word               = $row['translitaration_word'];
         $ayatimport->english_word_subject_category      = $row['english_word_subject_category'];
         $ayatimport->english_word_sub_subject_category  = $row['english_word_sub_subject_category'];

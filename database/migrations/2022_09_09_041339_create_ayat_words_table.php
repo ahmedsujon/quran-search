@@ -19,7 +19,9 @@ class CreateAyatWordsTable extends Migration
             $table->string('surah_number')->nullable();
             $table->string('ayat_number')->nullable();
             $table->longText('arabic_root_word')->nullable();
+            $table->longText('arabic_root_word_harkat')->nullable();
             $table->longText('normalized_arabic_word')->nullable();
+            $table->longText('normalized_arabic_word_harkat')->nullable();
             $table->longText('translitaration_word')->nullable();
             $table->longText('english_word_subject_category')->nullable();
             $table->longText('english_word_sub_subject_category')->nullable();

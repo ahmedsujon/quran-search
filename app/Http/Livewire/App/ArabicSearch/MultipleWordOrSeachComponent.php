@@ -23,24 +23,31 @@ class MultipleWordOrSeachComponent extends Component
 
     public function render()
     {
+
         $allData = collect([]);
         if ($this->multipleWordSearch != null || $this->multipleWordSearchTwo != null || $this->multipleWordSearchThree != null) {
             if ($this->multipleWordSearch != null) {
-                $multiple_words_search = AyatWord::where('arabic_root_word', 'like', '%' . $this->multipleWordSearch . '%')->get();
+                $multiple_words_search = AyatWord::where('arabic_root_word_harkat', 'like', '%' . pregReplace($this->multipleWordSearch) . '%')->get();
                 foreach ($multiple_words_search as $result) {
-                    $allData->push($result);
+                    if (!$allData->contains($result)) {
+                        $allData->push($result);
+                    }
                 }
             }
             if ($this->multipleWordSearchTwo != null) {
-                $multiple_words_search2 = AyatWord::where('arabic_root_word', 'like', '%' . $this->multipleWordSearchTwo . '%')->get();
+                $multiple_words_search2 = AyatWord::where('arabic_root_word_harkat', 'like', '%' . pregReplace($this->multipleWordSearchTwo) . '%')->get();
                 foreach ($multiple_words_search2 as $result2) {
-                    $allData->push($result2);
+                    if (!$allData->contains($result2)) {
+                        $allData->push($result2);
+                    }
                 }
             }
             if ($this->multipleWordSearchThree != null) {
-                $multiple_words_search3 = AyatWord::where('arabic_root_word', 'like', '%' . $this->multipleWordSearchThree . '%')->get();
+                $multiple_words_search3 = AyatWord::where('arabic_root_word_harkat', 'like', '%' . pregReplace($this->multipleWordSearchThree) . '%')->get();
                 foreach ($multiple_words_search3 as $result3) {
-                    $allData->push($result3);
+                    if (!$allData->contains($result3)) {
+                        $allData->push($result3);
+                    }
                 }
             }
         } else {
@@ -106,14 +113,14 @@ class MultipleWordOrSeachComponent extends Component
             foreach ($multiple_words_searchall3 as $resultall3) {
                 $allDataThree->push($resultall3);
             }
-            
         }
-        
+
         $multiple_words_search_tab_three = $allDataThree->sortBy('surah_number')->paginate($this->sortingValue);
-        
-        return view('livewire.app.arabic-search.multiple-word-or-seach-component',[
-            'multiple_words_search' => $multiple_words_search, 
-            'multiple_words_search_tab_two'=>$multiple_words_search_tab_two,
-            'multiple_words_search_tab_three'=>$multiple_words_search_tab_three])->layout('livewire.layouts.base');
+
+        return view('livewire.app.arabic-search.multiple-word-or-seach-component', [
+            'multiple_words_search' => $multiple_words_search,
+            'multiple_words_search_tab_two' => $multiple_words_search_tab_two,
+            'multiple_words_search_tab_three' => $multiple_words_search_tab_three
+        ])->layout('livewire.layouts.base');
     }
 }
