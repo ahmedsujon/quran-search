@@ -99,21 +99,80 @@ class MultipleWordAndSeachComponent extends Component
 
 
 
-
-
-        
+        //Tab 2
         $multiple_or_words_search_tab_two = collect([]);
-        $dataSets2 = AyatWord::where('normalized_arabic_word_harkat', pregReplace($this->multipleOrWordSearchTabTwoOne))->orWhere('normalized_arabic_word_harkat', pregReplace($this->multipleOrWordSearchTabTwoTwo))->orWhere('normalized_arabic_word_harkat', pregReplace($this->multipleOrWordSearchTabTwoThree))->groupBy('surah_number')->groupBy('ayat_number')->get();
-        foreach ($dataSets2 as $d2) {
-            $getData = SuraAyat::where('surah_number', $d2->surah_number)->where('ayat_number', $d2->ayat_number)->first();
-            if (!$multiple_or_words_search_tab_two->contains($getData)) {
-                $multiple_or_words_search_tab_two->push($getData);
+        if ($this->multipleOrWordSearchTabTwoOne != null || $this->multipleOrWordSearchTabTwoTwo != null || $this->multipleOrWordSearchTabTwoThree != null) {
+
+            $collectionB = collect([]);
+            if($this->multipleOrWordSearchTabTwoOne != null){
+                $dataSets2_1 = AyatWord::where('normalized_arabic_word_harkat', pregReplace($this->multipleOrWordSearchTabTwoOne))->groupBy('surah_number')->groupBy('ayat_number')->get();
+                
+                foreach ($dataSets2_1 as $d2_1) {
+                    if($this->multipleOrWordSearchTabTwoTwo != null){
+                        $dataSets2_2 = AyatWord::where('surah_number', $d2_1->surah_number)->where('ayat_number', $d2_1->ayat_number)->where('normalized_arabic_word_harkat', pregReplace($this->multipleOrWordSearchTabTwoTwo))->get();
+
+                        // dd($dataSets2_2);
+                        foreach ($dataSets2_2 as $d2_2) {
+                            if($this->multipleOrWordSearchTabTwoThree != null){
+                                $dataSets2_3 = AyatWord::where('surah_number', $d2_2->surah_number)->where('ayat_number', $d2_2->ayat_number)->where('normalized_arabic_word_harkat', pregReplace($this->multipleOrWordSearchTabTwoThree))->get();
+                                
+                                foreach ($dataSets2_3 as $d2_3) {
+                                    $getD2_3 = AyatWord::where('surah_number', $d2_3->surah_number)->where('ayat_number', $d2_3->ayat_number)->get();
+                                    foreach($getD2_3 as $gd2_3){
+                                        if (!$collectionB->contains($gd2_3)) {
+                                            $collectionB->push($gd2_3);
+                                        }
+                                    }
+                                }
+                            }
+                            else{
+                                $getD2_2 = AyatWord::where('surah_number', $d2_2->surah_number)->where('ayat_number', $d2_2->ayat_number)->get();
+                                foreach($getD2_2 as $gd2_2){
+                                    if (!$collectionB->contains($gd2_2)) {
+                                        $collectionB->push($gd2_2);
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    else{
+                        $getD2_1 = AyatWord::where('surah_number', $d2_1->surah_number)->where('ayat_number', $d2_1->ayat_number)->get();
+                        foreach($getD2_1 as $gd2_1){
+                            if (!$collectionB->contains($gd2_1)) {
+                                $collectionB->push($gd2_1);
+                            }
+                        }
+                    }
+                    
+                }
+            }
+
+            $surahNumberCollection2 = collect([]);
+            foreach ($collectionB as $colB) {
+                if (!$surahNumberCollection2->contains(['surah'=>$colB->surah_number, 'ayat'=>$colB->ayat_number])) {
+                    $surahNumberCollection2->push(['surah'=>$colB->surah_number, 'ayat'=>$colB->ayat_number]);
+                }
+            }
+
+            foreach($surahNumberCollection2 as $actVal2){
+                $getData = SuraAyat::where('surah_number', $actVal2['surah'])->where('ayat_number', $actVal2['ayat'])->first();
+                if (!$multiple_or_words_search_tab_two->contains($getData)) {
+                    $multiple_or_words_search_tab_two->push($getData);
+                }
+            }
+        } else {
+            $multiple_or_words_searchAll = SuraAyat::all();
+            foreach ($multiple_or_words_searchAll as $resultall) {
+                $multiple_or_words_search_tab_two->push($resultall);
             }
         }
         $multiple_or_words_search_tab_two = $multiple_or_words_search_tab_two->paginate($this->sortingValue);
 
 
-        $multiple_or_words_search_tab_three = SuraAyat::where('sura_ayat_arabic_description', 'like', '%' . $this->multipleOrWordSearchTabThreeOne . '%')->where('sura_ayat_arabic_description', 'like', '%' . $this->multipleOrWordSearchTabThreeTwo . '%')->where('sura_ayat_arabic_description', 'like', '%' . $this->multipleOrWordSearchTabThreeThree . '%')->orderBy('surah_number', 'ASC')->paginate($this->sortingValue);
+
+
+
+        $multiple_or_words_search_tab_three = SuraAyat::where('sura_ayat_arabic_description_harkat', 'like', '%' . $this->multipleOrWordSearchTabThreeOne . '%')->where('sura_ayat_arabic_description_harkat', 'like', '%' . $this->multipleOrWordSearchTabThreeTwo . '%')->where('sura_ayat_arabic_description_harkat', 'like', '%' . $this->multipleOrWordSearchTabThreeThree . '%')->orderBy('surah_number', 'ASC')->paginate($this->sortingValue);
 
         return view('livewire.app.arabic-search.multiple-word-and-seach-component', ['multiple_or_words_search' => $multiple_or_words_search, 'multiple_or_words_search_tab_two' => $multiple_or_words_search_tab_two, 'multiple_or_words_search_tab_three' => $multiple_or_words_search_tab_three])->layout('livewire.layouts.base');
     }
