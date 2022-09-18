@@ -13,6 +13,7 @@ class SuraAyat extends Model
         'ayat_number',
         'sura_ayat_english_description',
         'sura_ayat_arabic_description',
+        'sura_ayat_arabic_description_harkat',
         'relavant_ayat',
         'surah_name',
         'arabic_root_word',

@@ -58,25 +58,32 @@ class MultipleWordOrSeachComponent extends Component
         }
         $multiple_words_search = $allData->sortBy('surah_number')->paginate($this->sortingValue);
 
+
         // tab two
         $allDataTwo = collect([]);
         if ($this->multipleWordSearchTabTwoOne != null || $this->multipleWordSearchTabTwoTwo != null || $this->multipleWordSearchTabTwoThree != null) {
             if ($this->multipleWordSearchTabTwoOne != null) {
-                $multiple_words_search_tab_two = AyatWord::where('normalize_word', 'like', '%' . $this->multipleWordSearchTabTwoOne . '%')->get();
+                $multiple_words_search_tab_two = AyatWord::where('normalized_arabic_word_harkat', 'like', '%' . pregReplace($this->multipleWordSearchTabTwoOne) . '%')->get();
                 foreach ($multiple_words_search_tab_two as $result) {
-                    $allDataTwo->push($result);
+                    if (!$allDataTwo->contains($result)) {
+                        $allDataTwo->push($result);
+                    }
                 }
             }
             if ($this->multipleWordSearchTabTwoTwo != null) {
-                $multiple_words_search_tab_two2 = AyatWord::where('normalize_word', 'like', '%' . $this->multipleWordSearchTabTwoTwo . '%')->get();
+                $multiple_words_search_tab_two2 = AyatWord::where('normalized_arabic_word_harkat', 'like', '%' . pregReplace($this->multipleWordSearchTabTwoTwo) . '%')->get();
                 foreach ($multiple_words_search_tab_two2 as $result2) {
-                    $allDataTwo->push($result2);
+                    if (!$allDataTwo->contains($result2)) {
+                        $allDataTwo->push($result2);
+                    }
                 }
             }
             if ($this->multipleWordSearchTabTwoThree != null) {
-                $multiple_words_search_tab_two3 = AyatWord::where('normalize_word', 'like', '%' . $this->multipleWordSearchTabTwoThree . '%')->get();
+                $multiple_words_search_tab_two3 = AyatWord::where('normalized_arabic_word_harkat', 'like', '%' . pregReplace($this->multipleWordSearchTabTwoThree) . '%')->get();
                 foreach ($multiple_words_search_tab_two3 as $result3) {
-                    $allDataTwo->push($result3);
+                    if (!$allDataTwo->contains($result3)) {
+                        $allDataTwo->push($result3);
+                    }
                 }
             }
         } else {
@@ -91,21 +98,27 @@ class MultipleWordOrSeachComponent extends Component
         $allDataThree = collect([]);
         if ($this->multipleWordSearchTabThreeOne != null || $this->multipleWordSearchTabThreeTwo != null || $this->multipleWordSearchTabThreeThree != null) {
             if ($this->multipleWordSearchTabThreeOne != null) {
-                $multiple_words_search_tab_three = SuraAyat::where('ayat_arabic_description', 'like', '%' . $this->multipleWordSearchTabThreeOne . '%')->get();
+                $multiple_words_search_tab_three = SuraAyat::where('sura_ayat_arabic_description_harkat', 'like', '%' . pregReplace($this->multipleWordSearchTabThreeOne) . '%')->get();
                 foreach ($multiple_words_search_tab_three as $result) {
-                    $allDataThree->push($result);
+                    if (!$allDataThree->contains($result)) {
+                        $allDataThree->push($result);
+                    }
                 }
             }
             if ($this->multipleWordSearchTabThreeTwo != null) {
-                $multiple_words_search_tab_three2 = SuraAyat::where('ayat_arabic_description', 'like', '%' . $this->multipleWordSearchTabThreeTwo . '%')->get();
+                $multiple_words_search_tab_three2 = SuraAyat::where('sura_ayat_arabic_description_harkat', 'like', '%' . pregReplace($this->multipleWordSearchTabThreeTwo) . '%')->get();
                 foreach ($multiple_words_search_tab_three2 as $result2) {
-                    $allDataThree->push($result2);
+                    if (!$allDataThree->contains($result2)) {
+                        $allDataThree->push($result2);
+                    }
                 }
             }
             if ($this->multipleWordSearchTabThreeThree != null) {
-                $multiple_words_search_tab_three3 = SuraAyat::where('ayat_arabic_description', 'like', '%' . $this->multipleWordSearchTabThreeThree . '%')->get();
+                $multiple_words_search_tab_three3 = SuraAyat::where('sura_ayat_arabic_description_harkat', 'like', '%' . pregReplace($this->multipleWordSearchTabThreeThree) . '%')->get();
                 foreach ($multiple_words_search_tab_three3 as $result3) {
-                    $allDataThree->push($result3);
+                    if (!$allDataThree->contains($result3)) {
+                        $allDataThree->push($result3);
+                    }
                 }
             }
         } else {
