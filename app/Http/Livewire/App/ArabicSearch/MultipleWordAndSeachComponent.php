@@ -172,7 +172,7 @@ class MultipleWordAndSeachComponent extends Component
 
 
 
-        $multiple_or_words_search_tab_three = SuraAyat::where('sura_ayat_arabic_description_harkat', 'like', '%' . $this->multipleOrWordSearchTabThreeOne . '%')->where('sura_ayat_arabic_description_harkat', 'like', '%' . $this->multipleOrWordSearchTabThreeTwo . '%')->where('sura_ayat_arabic_description_harkat', 'like', '%' . $this->multipleOrWordSearchTabThreeThree . '%')->orderBy('surah_number', 'ASC')->paginate($this->sortingValue);
+        $multiple_or_words_search_tab_three = SuraAyat::where('sura_ayat_arabic_description_harkat', 'like', '%' . pregReplace($this->multipleOrWordSearchTabThreeOne) . '%')->where('sura_ayat_arabic_description_harkat', 'like', '%' . pregReplace($this->multipleOrWordSearchTabThreeTwo) . '%')->where('sura_ayat_arabic_description_harkat', 'like', '%' . pregReplace($this->multipleOrWordSearchTabThreeThree) . '%')->orderBy('surah_number', 'ASC')->paginate($this->sortingValue);
 
         return view('livewire.app.arabic-search.multiple-word-and-seach-component', ['multiple_or_words_search' => $multiple_or_words_search, 'multiple_or_words_search_tab_two' => $multiple_or_words_search_tab_two, 'multiple_or_words_search_tab_three' => $multiple_or_words_search_tab_three])->layout('livewire.layouts.base');
     }
