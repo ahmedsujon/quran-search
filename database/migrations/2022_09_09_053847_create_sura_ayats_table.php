@@ -19,6 +19,7 @@ class CreateSuraAyatsTable extends Migration
             $table->string('ayat_number')->nullable();
             $table->longText('sura_ayat_english_description')->nullable();
             $table->longText('sura_ayat_arabic_description')->nullable();
+            $table->longText('sura_ayat_arabic_description_harkat')->nullable();
             $table->longText('relavant_ayat')->nullable();
             $table->string('surah_name')->nullable();
             $table->longText('arabic_root_word')->nullable();

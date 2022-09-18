@@ -15,6 +15,11 @@ class SuraImport implements ToModel, WithHeadingRow
         $suraimport->ayat_number                                        = $row['ayat_number'];
         $suraimport->sura_ayat_english_description                      = $row['sura_ayat_english_description'];
         $suraimport->sura_ayat_arabic_description                       = $row['sura_ayat_arabic_description'];
+
+        $suraimport->sura_ayat_arabic_description_harkat                            = preg_replace("~[\x{064B}-\x{065B}]~u", "", $row['sura_ayat_arabic_description']);
+
+
+        
         $suraimport->relavant_ayat                                      = $row['relavant_ayat'];
         $suraimport->surah_name                                         = $row['surah_name'];
         $suraimport->save();
