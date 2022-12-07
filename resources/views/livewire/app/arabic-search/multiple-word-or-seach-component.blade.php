@@ -50,6 +50,7 @@
                     <th>Surah-Ayat</th>
                     <th>Arabic Root Word</th>
                     <th>Normalize Arabic Word</th>
+                    <th>English Word-Subject-Category</th>
                     <th>Inference Flag</th>
                     <th>Sura Ayat Arabic Description</th>
                     <th>Hadith Description</th>
@@ -59,6 +60,7 @@
                     <td>{{ $multipleword->surah_number }}:{{ $multipleword->ayat_number}}</td>
                     <td>{{ $multipleword->arabic_root_word }}</td>
                     <td>{{ $multipleword->normalized_arabic_word }}</td>
+                    <td>{{ $multipleword->english_word_subject_category }}</td>
                     <td>{{ $multipleword->inference_flag }}</td>
                     <td>{{ suraAyatData($multipleword->surah_number, $multipleword->ayat_number)->sura_ayat_arabic_description }}
                     </td>
@@ -91,6 +93,7 @@
                     <th>Surah-Ayat</th>
                     <th>Normalize Arabic Word</th>
                     <th>Arabic Root Word</th>
+                    <th>English Word-Subject-Category</th>
                     <th>Inference Flag</th>
                     <th>Sura Ayat Arabic Description </th>
                     <th>Hadith Description</th>
@@ -105,6 +108,7 @@
                     <td>{{ $ayat_word->surah_number }}:{{ $ayat_word->ayat_number }}</td>
                     <td>{{ $ayat_word->normalized_arabic_word }}</td>
                     <td>{{ $ayat_word->arabic_root_word }}</td>
+                    <td>{{ $ayat_word->english_word_subject_category }}</td>
                     <td>{{ $ayat_word->inference_flag }}</td>
                     <td>{{ suraAyatData($ayat_word->surah_number, $ayat_word->ayat_number)->sura_ayat_arabic_description }}</td>
                     <td>
