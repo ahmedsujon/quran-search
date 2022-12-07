@@ -99,8 +99,8 @@
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link menu-link {{ request()->is('admin/dropdown-search') || request()->is('admin/dropdown-search/*') ? 'text-white':'collapsed' }}"
-                            href="{{ route('admin.dropdown-search') }}">
+                        <a class="nav-link menu-link {{ request()->is('admin/arabic-dropdown-search') || request()->is('admin/arabic-dropdown-search/*') ? 'text-white':'collapsed' }}"
+                            href="{{ route('admin.arabic-dropdown-search') }}">
                             <i class="mdi mdi-speedometer"></i> <span data-key="t-dashboards">Arabic Root Word</span>
                         </a>
                     </li>

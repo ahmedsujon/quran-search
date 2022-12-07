@@ -5,6 +5,7 @@ use App\Http\Livewire\App\ArabicSearch\DisplayQuraComponent;
 use App\Http\Livewire\App\ArabicSearch\MultipleWordAndSeachComponent;
 use App\Http\Livewire\App\ArabicSearch\MultipleWordOrSeachComponent;
 use App\Http\Livewire\App\ArabicSearch\SinglWordSeachComponent;
+use App\Http\Livewire\App\DropdownSearch\ArabicDropdownComponent;
 use App\Http\Livewire\App\DropdownSearch\SubjectCategoryComponent as DropdownSearchSubjectCategoryComponent;
 use App\Http\Livewire\App\EnglishSearch\DisplayEnglishSubCategoryComponent;
 use App\Http\Livewire\App\EnglishSearch\DisplayEnglishWordComponent;
@@ -47,6 +48,7 @@ Route::get('/display-subsubject-category-word', DisplayEnglishSubCategoryCompone
 // Dropdown Search Routes
 Route::get('/dropdown-search', DropdownSearchComponent::class)->name('dropdown-search');
 Route::get('/subject-dropdown-search', DropdownSearchSubjectCategoryComponent::class)->name('subject-dropdown-search');
+Route::get('/arabic-dropdown-search', ArabicDropdownComponent::class)->name('arabic-dropdown-search');
 
 
 

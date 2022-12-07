@@ -45,6 +45,7 @@
                     <table class="table table-borderless table-centered align-middle">
                         <thead class="text-muted table-light">
                             <tr>
+                                <th scope="col">SL</th>
                                 <th scope="col">Search Value</th>
                                 <th scope="col">Slug</th>
                                 <th scope="col" class="text-center">Action</th>
@@ -52,8 +53,9 @@
                         </thead>
                         <tbody>
                             @if ($dropdowns->count() > 0)
-                                @foreach ($dropdowns as $dropdown)
+                                @foreach ($dropdowns as $index => $dropdown)
                                     <tr>
+                                        <td>{{ $index +1 }}</td>
                                         <td>{{ $dropdown->name }}</td>
                                         <td>{{ $dropdown->slug }}</td>
                                         <td class="text-center">

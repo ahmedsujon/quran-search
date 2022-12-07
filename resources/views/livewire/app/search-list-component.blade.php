@@ -22,6 +22,9 @@
                 <a style="padding: 18px; font-size:16px;" href="{{ route('display-quran-arabic') }}"
                     class="btn btn-primary btn-lg px-4 gap-3">Display Quran
                     In Arabic</a>
+                    <a style="padding: 18px; font-size:16px;" href="{{ route('arabic-dropdown-search') }}"
+                    class="btn btn-primary btn-lg px-4 gap-3">Select Value Of Arabic
+                    Search</a>
             </div>
         </div>
         <h1 style="padding-bottom: 30px; padding-top: 50px;" class="display-5 fw-bold">Quran Database Search in English
