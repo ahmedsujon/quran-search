@@ -5,6 +5,7 @@ use App\Http\Controllers\LogoutController;
 use App\Http\Livewire\Admin\Author\AdminComponent as AuthorAdminComponent;
 use App\Http\Livewire\Admin\DashboardComponent;
 use App\Http\Livewire\Admin\DropdownSearch\DropdownComponent;
+use App\Http\Livewire\Admin\DropdownSearch\SubjectCategoryComponent;
 use App\Http\Livewire\Admin\Imports\AyatImportComponent;
 use App\Http\Livewire\Admin\Imports\HadithImportComponent;
 use App\Http\Livewire\Admin\Imports\SuraImportComponent;
@@ -57,5 +58,6 @@ Route::prefix('admin/')->name('admin.')->middleware('auth:admin')->group(functio
     
     // Dropdown Search Routes
     Route::get('/dropdown-search', DropdownComponent::class)->name('dropdown-search');
+    Route::get('/subject-dropdown-search', SubjectCategoryComponent::class)->name('subject-dropdown-search');
 
 });

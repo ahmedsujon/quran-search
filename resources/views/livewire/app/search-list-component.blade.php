@@ -24,7 +24,8 @@
                     In Arabic</a>
             </div>
         </div>
-        <h1 style="padding-bottom: 30px; padding-top: 50px;" class="display-5 fw-bold">Quran Database Search in English</h1>
+        <h1 style="padding-bottom: 30px; padding-top: 50px;" class="display-5 fw-bold">Quran Database Search in English
+        </h1>
 
         <div style="padding-bottom: 18px;" class="col-lg-6 mx-auto">
             <div class="d-grid gap-3 d-sm-flex justify-content-sm-center">
@@ -45,9 +46,12 @@
                 <a style="padding: 18px; font-size:16px;" href="{{ route('display-subsubject-category-word') }}"
                     class="btn btn-primary btn-lg px-4 gap-3">Display
                     Complete Quran Sorted By English Sub-Category</a>
+                    <a style="padding: 18px; font-size:16px;" href="{{ route('subject-dropdown-search') }}"
+                    class="btn btn-primary btn-lg px-4 gap-3">Select Value of Subject Category</a>
                 <a style="padding: 18px; font-size:16px;" href="{{ route('dropdown-search') }}"
-                    class="btn btn-primary btn-lg px-4 gap-3">Select One From following Searches</a>
+                    class="btn btn-primary btn-lg px-4 gap-3">Select Value of Sub-subject Sub-category</a>
             </div>
         </div>
+
     </div>
 </div>

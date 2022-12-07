@@ -2,12 +2,12 @@
     <div class="row">
         <div class="col-12">
             <div class="page-title-box d-sm-flex align-items-center justify-content-between">
-                <h4 class="mb-sm-0">Select Value of Sub-Subject Sub-category </h4>
+                <h4 class="mb-sm-0">Subject Category Dropdown Searches</h4>
 
                 <div class="page-title-right">
                     <ol class="breadcrumb m-0">
                         <li class="breadcrumb-item"><a href="javascript: void(0);">Dashboards</a></li>
-                        <li class="breadcrumb-item active">Select Value of Sub-Subject Sub-category</li>
+                        <li class="breadcrumb-item active">Dropdown Searches</li>
                     </ol>
                 </div>
             </div>
@@ -17,7 +17,7 @@
     <div class="col-xl-12">
         <div class="card">
             <div class="card-header align-items-center d-flex">
-                <h4 class="card-title mb-0 flex-grow-1">Values of Sub-Subject Sub-categories</h4>
+                <h4 class="card-title mb-0 flex-grow-1">Values of Subject Categories</h4>
                 <div class="flex-shrink-0">
                     <a data-bs-toggle="modal" data-bs-target="#myModal" class="btn btn-sm btn-primary">Add New</a>
                 </div>
@@ -51,8 +51,8 @@
                             </tr>
                         </thead>
                         <tbody>
-                            @if ($dropdowns->count() > 0)
-                                @foreach ($dropdowns as $dropdown)
+                            @if ($subject_dropdowns->count() > 0)
+                                @foreach ($subject_dropdowns as $dropdown)
                                     <tr>
                                         <td>{{ $dropdown->name }}</td>
                                         <td>{{ $dropdown->slug }}</td>
@@ -70,7 +70,7 @@
                     </table>
                 </div>
             </div>
-            {{ $dropdowns->links('pagination-links-table') }}
+            {{ $subject_dropdowns->links('pagination-links-table') }}
         </div>
     </div>
 

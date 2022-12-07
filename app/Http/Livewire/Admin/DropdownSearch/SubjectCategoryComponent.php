@@ -2,12 +2,12 @@
 
 namespace App\Http\Livewire\Admin\DropdownSearch;
 
-use App\Models\Dropdown;
+use App\Models\SubjectDropdown;
 use Livewire\Component;
-use Livewire\WithPagination;
 use Illuminate\Support\Str;
+use Livewire\WithPagination;
 
-class DropdownComponent extends Component
+class SubjectCategoryComponent extends Component
 {
     use WithPagination;
 
@@ -29,7 +29,7 @@ class DropdownComponent extends Component
             'slug' => 'required',
         ]);
 
-        $data = new Dropdown();
+        $data = new SubjectDropdown();
         $data->name = $this->name;
         $data->slug = $this->slug;
   
@@ -53,14 +53,14 @@ class DropdownComponent extends Component
 
     public function deleteData()
     {
-        $data = Dropdown::find($this->delete_id);
+        $data = SubjectDropdown::find($this->delete_id);
         $data->delete();
         $this->dispatchBrowserEvent('adminDeleted');
     }
 
     public function render()
     {
-        $dropdowns = Dropdown::orderBy('created_at', 'DESC')->paginate($this->sortingValue);
-        return view('livewire.admin.dropdown-search.dropdown-component', ['dropdowns'=>$dropdowns])->layout('livewire.admin.layouts.base');
+        $subject_dropdowns = SubjectDropdown::orderBy('created_at', 'DESC')->paginate($this->sortingValue);
+        return view('livewire.admin.dropdown-search.subject-category-component', ['subject_dropdowns'=>$subject_dropdowns])->layout('livewire.admin.layouts.base');
     }
 }

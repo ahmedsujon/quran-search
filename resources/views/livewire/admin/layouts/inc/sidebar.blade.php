@@ -87,9 +87,21 @@
                         </div>
                     </li>
                     <li class="nav-item">
+                        <a class="nav-link menu-link {{ request()->is('admin/subject-dropdown-search') || request()->is('admin/subject-dropdown-search/*') ? 'text-white':'collapsed' }}"
+                            href="{{ route('admin.subject-dropdown-search') }}">
+                            <i class="mdi mdi-speedometer"></i> <span data-key="t-dashboards">Subject Category</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
                         <a class="nav-link menu-link {{ request()->is('admin/dropdown-search') || request()->is('admin/dropdown-search/*') ? 'text-white':'collapsed' }}"
                             href="{{ route('admin.dropdown-search') }}">
-                            <i class="mdi mdi-speedometer"></i> <span data-key="t-dashboards">Dropdown</span>
+                            <i class="mdi mdi-speedometer"></i> <span data-key="t-dashboards">Sub-Subject Sub-Category</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link menu-link {{ request()->is('admin/dropdown-search') || request()->is('admin/dropdown-search/*') ? 'text-white':'collapsed' }}"
+                            href="{{ route('admin.dropdown-search') }}">
+                            <i class="mdi mdi-speedometer"></i> <span data-key="t-dashboards">Arabic Root Word</span>
                         </a>
                     </li>
 
