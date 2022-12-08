@@ -28,6 +28,15 @@ function loadingStateWithText($key, $title)
     return $loadingSpinner;
 }
 
+function loadingState($key, $title)
+{
+    $loadingSpinner = '
+        <div wire:loading wire:target="' . $key . '" wire:key="' . $key . '"><span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span></div> ' . $title . '
+    ';
+
+    return $loadingSpinner;
+}
+
 function suraAyatData($surah_number, $ayat_number){
     $data = SuraAyat::where('surah_number', $surah_number)->where('ayat_number', $ayat_number)->first();
     return $data;
