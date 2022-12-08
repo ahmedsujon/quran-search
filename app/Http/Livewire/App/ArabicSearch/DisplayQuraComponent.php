@@ -21,7 +21,7 @@ class DisplayQuraComponent extends Component
 
     public function render()
     {
-        $display_quran_arabic = AyatWord::where('arabic_root_word', 'like', '%'.$this->displayQuraArabic.'%')
+        $display_quran_arabic = AyatWord::orderBy('id', 'ASC')->where('arabic_root_word', 'like', '%'.$this->displayQuraArabic.'%')
         ->paginate($this->sortingValue);
         $display_quran_arabic_tab_two = AyatWord::where('arabic_root_word', 'like', '%'.$this->displayQuraArabicTabTwo.'%')
         ->paginate($this->sortingValue);
