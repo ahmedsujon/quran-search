@@ -15,7 +15,7 @@ class ArabicDropdownComponent extends Component
 
     public function render()
     {
-        $search_dropdowns = AyatWord::where('normalized_arabic_word', 'like', '%' . $this->dropdownsearch . '%')->paginate($this->sortingValue);
+        $search_dropdowns = AyatWord::orderBy('normalized_arabic_word', 'ASC')->orderBy('english_word_sub_subject_category', 'ASC')->where('normalized_arabic_word', 'like', '%' . $this->dropdownsearch . '%')->paginate($this->sortingValue);
         
         $dropdown_values = ArabicDropdown::get();
         return view('livewire.app.dropdown-search.arabic-dropdown-component', ['search_dropdowns'=>$search_dropdowns, 'dropdown_values'=> $dropdown_values])->layout('livewire.layouts.base');
