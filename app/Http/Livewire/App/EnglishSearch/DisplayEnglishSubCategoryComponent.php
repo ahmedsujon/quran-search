@@ -15,8 +15,7 @@ class DisplayEnglishSubCategoryComponent extends Component
 
     public function render()
     {
-        $display_complete_quran_category = AyatWord::orderBy('id', 'ASC')->where('english_word_sub_subject_category', 'like', '%'.$this->displayCompleteQuraCategory.'%')
-        ->paginate($this->sortingValue);
+        $display_complete_quran_category = AyatWord::orderBy('english_word_subject_category', 'ASC')->orderBy('english_word_sub_subject_category', 'ASC')->paginate($this->sortingValue);
 
         return view('livewire.app.english-search.display-english-sub-category-component',['display_complete_quran_category'=>$display_complete_quran_category])->layout('livewire.layouts.base');
     }
