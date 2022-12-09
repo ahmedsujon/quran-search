@@ -23,6 +23,7 @@
               <th>Sura-Ayat</th>
               <th>English-Word-Subsubject-Subcategory</th>
               <th>English-Word-Subject-Category</th>
+              <th>Inference Flag</th>
               <th>Sura Ayat English Description</th>
               <th>Hadith Description</th>
             </tr>
@@ -36,6 +37,7 @@
               <td>{{ $ayat_word->surah_number }}:{{ $ayat_word->ayat_number }}</td>
               <td>{{ $ayat_word->english_word_sub_subject_category }}</td>
               <td>{{ $ayat_word->english_word_subject_category }}</td>
+              <td>{{ $ayat_word->inference_flag }}</td>
               <td>{{ suraAyatData($ayat_word->surah_number,$ayat_word->ayat_number)->sura_ayat_english_description }}
               </td>
               <td>

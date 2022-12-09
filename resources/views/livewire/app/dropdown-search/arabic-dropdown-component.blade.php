@@ -20,19 +20,19 @@
                 <div style="text-align: center; padding-bottom: 50px; margin-left: 20%; margin-right: 20%;"
                     class="dropdown">
                     <select wire:model="dropdownsearch" class="form-select" aria-label="Default select example">
-                        <option value="">Open this select topics</option>
+                        <option value="">Select Value For Search</option>
                         @foreach ($dropdown_values as $item)
                         <option value="{{ $item->name }}">{{ $item->name }}</option>
                         @endforeach
                     </select>
                 </div>
-
                 <div style="overflow-x:auto;">
                     <table id="myTable">
                         <tr class="header">
                             <th>Sura-Ayat</th>
-                            <th>Arabic Root Word</th>
                             <th>Normalized Arabic Word</th>
+                            <th>English Word-Subject-Category</th>
+                            <th>Inference Flag</th>
                             <th>Sura Ayat Arabic Description</th>
                         </tr>
                         @php
@@ -43,8 +43,9 @@
                         @foreach ($search_dropdowns as $ayat_word)
                         <tr>
                             <td>{{ $ayat_word->surah_number }}:{{ $ayat_word->ayat_number }}</td>
-                            <td>{{ $ayat_word->arabic_root_word }}</td>
                             <td>{{ $ayat_word->normalized_arabic_word }}</td>
+                            <td>{{ $ayat_word->english_word_subject_category }}</td>
+                            <td>{{ $ayat_word->inference_flag }}</td>
                             <td>{{
                                 suraAyatData($ayat_word->surah_number,$ayat_word->ayat_number)->sura_ayat_arabic_description
                                 }}</td>

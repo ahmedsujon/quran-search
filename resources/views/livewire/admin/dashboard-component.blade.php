@@ -119,7 +119,29 @@
                             <div class="card-body">
                                 <div class="d-flex align-items-center">
                                     <div class="flex-grow-1 overflow-hidden">
-                                        <p class="text-uppercase fw-medium text-muted text-truncate mb-0">Dropdown Search</p>
+                                        <p class="text-uppercase fw-medium text-muted text-truncate mb-0">Subject Category</p>
+                                    </div>
+                                </div>
+                                <div class="d-flex align-items-end justify-content-between mt-4">
+                                    <div>
+                                        <h4 class="fs-22 fw-semibold ff-secondary mb-4"><span class="counter-value" data-target="{{ $subject_dropdown }}">{{ $subject_dropdown }}</span></h4>
+                                    </div>
+                                    <div class="avatar-sm flex-shrink-0">
+                                        <span class="avatar-title bg-danger rounded fs-3">
+                                            <i class="bx bx-wallet"></i>
+                                        </span>
+                                    </div>
+                                </div>
+                            </div><!-- end card body -->
+                        </div><!-- end card -->
+                    </div>
+                    <div class="col-xl-3 col-md-6">
+                        <!-- card -->
+                        <div class="card card-animate">
+                            <div class="card-body">
+                                <div class="d-flex align-items-center">
+                                    <div class="flex-grow-1 overflow-hidden">
+                                        <p class="text-uppercase fw-medium text-muted text-truncate mb-0">Sub-Subject Sub-Category</p>
                                     </div>
                                 </div>
                                 <div class="d-flex align-items-end justify-content-between mt-4">
@@ -134,7 +156,29 @@
                                 </div>
                             </div><!-- end card body -->
                         </div><!-- end card -->
-                    </div><!-- end col -->
+                    </div>
+                    <div class="col-xl-3 col-md-6">
+                        <!-- card -->
+                        <div class="card card-animate">
+                            <div class="card-body">
+                                <div class="d-flex align-items-center">
+                                    <div class="flex-grow-1 overflow-hidden">
+                                        <p class="text-uppercase fw-medium text-muted text-truncate mb-0">Arabic Root Word</p>
+                                    </div>
+                                </div>
+                                <div class="d-flex align-items-end justify-content-between mt-4">
+                                    <div>
+                                        <h4 class="fs-22 fw-semibold ff-secondary mb-4"><span class="counter-value" data-target="{{ $arabic_dropdown }}">{{ $arabic_dropdown }}</span></h4>
+                                    </div>
+                                    <div class="avatar-sm flex-shrink-0">
+                                        <span class="avatar-title bg-danger rounded fs-3">
+                                            <i class="bx bx-wallet"></i>
+                                        </span>
+                                    </div>
+                                </div>
+                            </div><!-- end card body -->
+                        </div><!-- end card -->
+                    </div>
                 </div> <!-- end row-->
 
                 <div class="row">

@@ -76,11 +76,6 @@
                                                 class="nav-link {{ request()->is('admin/hadithimport') ? 'active':'' }}"
                                                 data-key="t-alerts">Hadith Import</a>
                                         </li>
-                                        {{-- <li class="nav-item">
-                                            <a href="{{ route('admin.chunkCSV') }}"
-                                                class="nav-link {{ request()->is('admin/tools/csv-chunk') ? 'active':'' }}"
-                                                data-key="t-alerts">Chunk CSV</a>
-                                        </li> --}}
                                     </ul>
                                 </div>
                             </div>
@@ -101,7 +96,7 @@
                     <li class="nav-item">
                         <a class="nav-link menu-link {{ request()->is('admin/arabic-dropdown-search') || request()->is('admin/arabic-dropdown-search/*') ? 'text-white':'collapsed' }}"
                             href="{{ route('admin.arabic-dropdown-search') }}">
-                            <i class="mdi mdi-speedometer"></i> <span data-key="t-dashboards">Arabic Root Word</span>
+                            <i class="mdi mdi-speedometer"></i> <span data-key="t-dashboards">Arabic Search</span>
                         </a>
                     </li>
 
